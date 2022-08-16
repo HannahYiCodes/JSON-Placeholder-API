@@ -21,7 +21,7 @@ public class UserController {
 
             for (int i = 0; i < response.length; i++) {
                 UserModel user = response[i];
-                System.out.println(user.getCompany().getName());
+                System.out.println(user.getAddress().getGeo().getLat());
             }
             return ResponseEntity.ok(response);
         } catch (Exception e) {
@@ -60,7 +60,26 @@ public class UserController {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
+}
 
+//    @GetMapping("/posts")
+//    public ResponseEntity<?> getPosts(RestTemplate restTemplate) {
+//        try {
+//            UserModel[] response = restTemplate.getForObject(jsonPlaceholderEndpoint, UserModel[].class);
+//
+//            for (int i = 0; i < response.length; i++) {
+//                UserModel user = response[i];
+//                System.out.println(user.getTitle());
+//                System.out.println(user.getBody());
+//            }
+//            return ResponseEntity.ok(response);
+//        } catch (Exception e) {
+//            System.out.println(e.getClass());
+//            System.out.println(e.getMessage());
+//
+//            return ResponseEntity.internalServerError().body(e.getMessage());
+//        }
+//    }
 //
 //    @GetMapping("/photos")
 //    public Object photoHandler(RestTemplate restTemplate) {
@@ -110,7 +129,3 @@ public class UserController {
 //
 //        return ResponseEntity.ok(response);
 //    }
-}
-
-// JSON Placeholder Address
-// NASA APOD
